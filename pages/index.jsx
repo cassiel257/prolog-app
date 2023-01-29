@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Routes } from "@config/routes";
+import MyAPI from "./api";
 
 const Header = styled.header`
   width: 100%;
@@ -28,7 +29,20 @@ const ContactButton = styled.button`
   }
 `;
 
-const IssuesPage = () => {
+const Section = styled.section`
+  width: 80%;
+  height: 400px;
+  padding: 0 2rem;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px;
+  border-color: red;
+  background: pink;
+`;
+
+const IssuesPage = (parts, sections, meta, hero) => {
   return (
     <div>
       <Header>
@@ -36,6 +50,8 @@ const IssuesPage = () => {
         <img src="/icons/logo-large.svg" alt="Prolog logo" />
         <a href={Routes.projects}>Dashboard</a>
       </Header>
+      <Section>{myData.pastries[0]}</Section>
+      <Section>{hero.title}</Section>
       <ContactButton
         onClick={() =>
           alert(
@@ -49,5 +65,7 @@ const IssuesPage = () => {
     </div>
   );
 };
+
+const myData = { pastries: ["cupcakes", "pies"] };
 
 export default IssuesPage;
